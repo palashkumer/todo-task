@@ -35,7 +35,7 @@ function AddTask() {
         setMessage(res.data.success);
         setTimeout(() => {
           setMessage('');
-          navigate('/tasklist'); // Navigate to the task list
+          navigate('/tasklist'); 
         }, 2000);
       }
     } catch (error) {
@@ -154,3 +154,5 @@ function AddTask() {
 }
 
 export default AddTask;
+
+

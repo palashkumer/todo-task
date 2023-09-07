@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function EditTaskModal({ taskId, onClose }) {
+function EditTaskModal({ taskId, onClose, onEditSuccess }) {
   const [formValue, setFormValue] = useState({
     taskName: "",
     taskDescription: "",
@@ -11,6 +11,7 @@ function EditTaskModal({ taskId, onClose }) {
   });
 
   const [message, setMessage] = useState('');
+
 
   useEffect(() => {
     const fetchTaskData = async () => {
@@ -39,6 +40,7 @@ function EditTaskModal({ taskId, onClose }) {
       setMessage(res.data.success);
       setTimeout(() => {
         onClose();
+        onEditSuccess(); 
       }, 2000);
     }
   };
@@ -108,6 +110,7 @@ function EditTaskModal({ taskId, onClose }) {
                   </div>
                 </div>
               </form>
+              <p className="text-success">{message}</p>
           </div>
         </div>
       </div>

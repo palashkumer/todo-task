@@ -1,12 +1,12 @@
 
-import axios from "axios";
 import React, { useState, useEffect } from "react";
-import EditTaskModal from "./EditTaskModal"; // Import the EditTaskModal component
+import axios from "axios";
+import EditTaskModal from "./EditTaskModal";
 
 function TaskList() {
   const [taskData, setTaskData] = useState([]);
   const [message, setMessage] = useState('');
-  const [editTaskId, setEditTaskId] = useState(null); // Track the ID of the task being edited
+  const [editTaskId, setEditTaskId] = useState(null); 
 
   useEffect(() => {
     getTaskData();
@@ -37,12 +37,16 @@ function TaskList() {
   }
 
   const openEditTaskModal = (id) => {
-    setEditTaskId(id); // Set the ID of the task to be edited
+    setEditTaskId(id); 
   }
 
   const closeEditTaskModal = () => {
-    setEditTaskId(null); // Close the edit task modal
+    setEditTaskId(null); 
   }
+
+  const handleEditSuccess = () => {
+    getTaskData();
+  };
 
   return (
     <React.Fragment>
@@ -82,10 +86,10 @@ function TaskList() {
       </div>
       
       {editTaskId && (
-        <EditTaskModal taskId={editTaskId} onClose={closeEditTaskModal} />
+        <EditTaskModal taskId={editTaskId} onClose={closeEditTaskModal} onEditSuccess={handleEditSuccess} />
       )}
+
     </React.Fragment>
   );
 }
-
 export default TaskList;

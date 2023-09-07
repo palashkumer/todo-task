@@ -13,6 +13,7 @@ function App() {
           Add Task
         </Link>
         <Routes>
+           <Route path="/" element={<TaskList />} />
           <Route path="/tasklist" element={<TaskList />} />
           <Route path="/addtask" element={<AddTask />} />
         </Routes>
@@ -22,3 +23,4 @@ function App() {
 }
 
 export default App;
+
