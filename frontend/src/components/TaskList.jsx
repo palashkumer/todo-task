@@ -72,7 +72,7 @@ function TaskList() {
                     <td>{task.taskDescription}</td>
                     <td>{task.priority}</td>
                     <td>{task.dueDate}</td>
-                    <td>{task.status === "1" ? "In Progress" : "Completed"}</td>
+                    <td>{task.status }</td>
                     <td>
                       <button className="btn btn-success mx-2" onClick={() => openEditTaskModal(task.id)}>Edit</button>
                       <button className="btn btn-danger" onClick={() => handleDelete(task.id)}>Delete</button>
