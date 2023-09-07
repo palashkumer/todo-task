@@ -4,18 +4,18 @@
 
 <h4>Installation<h4/> <br/>
 <h4>Create Project <h4/><br/>
-<h5>C:\todo-task>npm create vite@latest<h5/> <br/>
-<h5>then give project name(front-end)<h5/>  <br/>
+C:\todo-task>npm create vite@latest <br/>
+then give project name(front-end)  <br/>
 
-<h4>C:\todo-task\cd front-end <h4>/ <br/>
+C:\todo-task\cd front-end  <br/>
 
-<h4>C:\todo-task\cd front-end> npm install<h4/> <br/>
+C:\todo-task\cd front-end> npm install <br/>
 
-<h3>Run<h3/>  <br/>
-<h5>C:\todo-task\front-end> npm run dev  <h5/><br/>
+<h4>Run<h4/>  <br/>
+C:\todo-task\front-end> npm run dev  <br/>
 
 <h4>Install React Router Dom <h4/> <br/>
-<h5>C:\todo-task\my-app>npm i react-router-dom  <h5/><br/>
+C:\todo-task\my-app>npm i react-router-dom  <br/>
 
-<h43>Install Axios <h4/> <br/>
-<h5>C:\todo-task\front-end>npm install axios<h5/>
+<h4>Install Axios <h4/> <br/>
+C:\todo-task\front-end>npm install axios
