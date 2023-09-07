@@ -1,8 +1,10 @@
-
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function AddTask({ onClose }) {
+function AddTask() {
+  const navigate = useNavigate();
+
   const [formValue, setFormValue] = useState({
     taskName: '',
     taskDescription: '',
@@ -24,7 +26,6 @@ function AddTask({ onClose }) {
       dueDate: formValue.dueDate,
       status: formValue.status,
       priority: formValue.priority,
-
     };
 
     try {
@@ -33,7 +34,8 @@ function AddTask({ onClose }) {
       if (res.data.success) {
         setMessage(res.data.success);
         setTimeout(() => {
-          onClose(); 
+          setMessage('');
+          navigate('/tasklist'); // Navigate to the task list
         }, 2000);
       }
     } catch (error) {
@@ -42,15 +44,16 @@ function AddTask({ onClose }) {
   };
 
   return (
-    <div className="modal-dialog" role="document">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Add Task</h5>
-          <button type="button" className="close" onClick={onClose} aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div className="modal-body">
+    <div className="modal" tabIndex="-1" role="dialog" style={{ display: 'block' }}>
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title">Add Task</h5>
+            <button type="button" className="close" onClick={() => navigate('/tasklist')} aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
           <form onSubmit={handleSubmit}>
             <div className="mb-3 row">
               <label className="col-sm-2">Task Name</label>
@@ -142,7 +145,8 @@ function AddTask({ onClose }) {
               </div>
             </div>
           </form>
-          <p className="text-success">{message}</p>
+            <p className="text-success">{message}</p>
+          </div>
         </div>
       </div>
     </div>
