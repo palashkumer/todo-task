@@ -51,22 +51,22 @@ function TaskList() {
 
   return (
     <React.Fragment>
-      <div className="container  ">
+      <div className="task-list-data-table ">
         <div className="row ">
-          <div className="col-md-10 mt-4 " >
+          <div className="task-list " >
             <p className="text-danger">{message}</p>
             
-            <table className="table table-bordered custom-table">
+            <table className="table table-bordered custom-table task-list-data-table">
 
             <thead>
 
-            <tr >
-                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }}scope="col">Task</th>
-                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Task Description</th>
-                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Priority</th>
-                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Due Date</th>
-                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Status</th>
-                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Action</th>
+            <tr className="table-header-data" >
+                  <th scope="col">Task</th>
+                  <th  scope="col">Task Description</th>
+                  <th  scope="col">Priority</th>
+                  <th scope="col">Due Date</th>
+                  <th scope="col">Status</th>
+                  <th  scope="col">Action</th>
                 </tr>
               </thead>
               

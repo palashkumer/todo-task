@@ -48,19 +48,19 @@ function AddTask() {
   };
 
   return (
-    <div className="modal" tabIndex="-1" role="dialog" style={{ display: 'block' }}>
+    <div className="modal" tabIndex="-1" role="dialog" style={{ display: 'block',}}>
       <div className="modal-dialog" role="document">
-        <div className="modal-content">
+        <div className="modal-content " style={{ backgroundColor: '#0b0736'}}>
           <div className="modal-header">
-            <h5 className="modal-title">Add Task</h5>
+            <h5 className="modal-title" style={{color:'white', backgroundColor:'#7a74bf', padding : '2px 12px',borderRadius: '13px'}}>Add Task</h5>
             <button type="button" className="close" onClick={() => navigate('/tasklist')} aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true" style={{color: 'magenta'}}>&times;</span>
             </button>
           </div>
           <div className="modal-body">
           <form onSubmit={handleSubmit}>
             <div className="mb-3 row">
-              <label className="col-sm-2">Task Name</label>
+              <label className="col-sm-2" style={{color: 'white'}}>Task Name</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -68,11 +68,12 @@ function AddTask() {
                   value={formValue.taskName}
                   className="form-control"
                   onChange={handleInput}
+                  placeholder='Task name'
                 />
               </div>
             </div>
             <div className="mb-3 row">
-              <label className="col-sm-2">Description</label>
+              <label className="col-sm-2" style={{color: 'white'}}>Description</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -80,12 +81,13 @@ function AddTask() {
                   value={formValue.taskDescription}
                   className="form-control"
                   onChange={handleInput}
+                  placeholder='Description'
                 />
               </div>
             </div>
 
             <div className="mb-3 row">
-              <label className="col-sm-2">Due Date</label>
+              <label className="col-sm-2" style={{color: 'white'}}>Due Date</label>
               <div className="col-sm-10">
                 <input
                   type="date"
@@ -98,9 +100,9 @@ function AddTask() {
             </div>
 
             <div className="mb-3 row">
-              <label className="col-sm-2">Status</label>
+              <label className="col-sm-2" style={{color: 'white'}}>Status</label>
               <div className="col-sm-10">
-                <label className={`status-radio ${formValue.status === 'In Progress' ? 'active' : ''}`}>
+                <label style={{color: 'white'}} className={`status-radio ${formValue.status === 'In Progress' ? 'active' : ''}`}>
                   <input
                     type="radio"
                     name="status"
@@ -110,7 +112,7 @@ function AddTask() {
                   />
                   In Progress
                 </label>
-                <label className={`status-radio ${formValue.status === 'Completed' ? 'active' : ''}`}>
+                <label style={{color: 'white'}} className={`status-radio ${formValue.status === 'Completed' ? 'active' : ''}`}>
                   <input
                     type="radio"
                     name="status"
@@ -124,7 +126,7 @@ function AddTask() {
             </div>
 
             <div className="mb-3 row">
-              <label className="col-sm-2">Priority</label>
+              <label style={{color: 'white'}} className="col-sm-2">Priority</label>
               <div className="col-sm-10">
                 <select 
                   name="priority"
@@ -141,15 +143,15 @@ function AddTask() {
             </div>
 
             <div className="mb-3 row">
-              <label className="col-sm-2"></label>
+              <label className="col-sm-2" style={{color: 'white'}}></label>
               <div className="col-sm-10">
-                <button name="submit" className="btn btn-success">
+                <button name="submit" className="btn " style={{color: 'white',backgroundColor:'#7a74bf', padding : '2px 12px',borderRadius: '13px'}}>
                   Add
                 </button>
               </div>
             </div>
           </form>
-            <p className="text-success">{message}</p>
+            <p className="text-white text-center">{message}</p>
           </div>
         </div>
       </div>

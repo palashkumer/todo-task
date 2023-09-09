@@ -1,3 +1,21 @@
 .status-radio{
     margin-left: 10px;
 }
+
+
+
+.custom-modal {
+    /* Your custom modal styles */
+    background-color: #f0f0f0;
+    /* Add other styles as needed */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .custom-modal-title {
+    /* Your custom modal title styles */
+    font-size: 24px;
+    /* Add other styles as needed */
+    text-align: center; /* Center the text within the title */
+  }
