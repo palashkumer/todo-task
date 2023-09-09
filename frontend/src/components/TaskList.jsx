@@ -1,7 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditTaskModal from "./EditTaskModal";
+import "./TaskList.css"; 
+
 
 function TaskList() {
   const [taskData, setTaskData] = useState([]);
@@ -50,29 +51,60 @@ function TaskList() {
 
   return (
     <React.Fragment>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-10 mt-4">
+      <div className="container  ">
+        <div className="row ">
+          <div className="col-md-10 mt-4 " >
             <p className="text-danger">{message}</p>
-            <table className="table table-bordered">
-              <thead>
-                <tr className="bg-dark text-white">
-                  <th scope="col">Task</th>
-                  <th scope="col">Task Description</th>
-                  <th scope="col">Priority</th>
-                  <th scope="col">Due Date</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Action</th>
+            
+            <table className="table table-bordered custom-table">
+
+            <thead>
+
+            <tr >
+                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }}scope="col">Task</th>
+                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Task Description</th>
+                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Priority</th>
+                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Due Date</th>
+                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Status</th>
+                  <th style={{backgroundColor: "rgb(7 49 64)",color:" white" }} scope="col">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              
+              <tbody className="custom-table-body">
+
                 {taskData.map((task, index) => (
-                  <tr key={index}>
+                  <tr key={index} >
                     <td>{task.taskName}</td>
                     <td>{task.taskDescription}</td>
-                    <td>{task.priority}</td>
+                    <td>
+                    <span
+                      className={`priority-column ${
+                        task.priority === "Low"
+                          ? "low-priority"
+                          : task.priority === "Medium"
+                          ? "medium-priority"
+                          : task.priority === "High"
+                          ? "high-priority"
+                          : "default-priority" 
+                      }`}
+                    >
+                      {task.priority}
+                    </span>
+                    </td>
                     <td>{task.dueDate}</td>
-                    <td>{task.status }</td>
+                    <td>
+                    <span
+                      className={`status-column ${
+                        task.status === "In Progress"
+                          ? "in-progress"
+                          : task.status === "Completed"
+                          ? "completed"
+                          : "default-status" 
+                      }`}
+                    >
+                      {task.status}
+                    </span>
+                    </td>
                     <td>
                       <button className="btn btn-success mx-2" onClick={() => openEditTaskModal(task.id)}>Edit</button>
                       <button className="btn btn-danger" onClick={() => handleDelete(task.id)}>Delete</button>

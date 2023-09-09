@@ -31,6 +31,10 @@ function AddTask() {
     try {
       const res = await axios.post('http://localhost/todo-task/api/index.php', formData);
 
+      // const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/index.php`, formData);
+
+
+
       if (res.data.success) {
         setMessage(res.data.success);
         setTimeout(() => {
@@ -122,7 +126,7 @@ function AddTask() {
             <div className="mb-3 row">
               <label className="col-sm-2">Priority</label>
               <div className="col-sm-10">
-                <select
+                <select 
                   name="priority"
                   className="form-control"
                   value={formValue.priority}

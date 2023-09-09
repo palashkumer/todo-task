@@ -1,0 +1,43 @@
+  
+.priority-column {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  
+  .low-priority {
+    background-color: var(--bs-warning);
+  }
+  
+  .medium-priority {
+    background-color: var(--bs-primary);
+
+  }
+  
+  .high-priority {
+    background-color: var(--bs-success);
+  }
+  
+
+  .status-column {
+    font-weight: bold;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  
+  .in-progress {
+    background-color: var(--bs-warning);
+  }
+  
+  .completed {
+    background-color: var(--bs-success);
+  }
+
+body .table {
+  background-color: #0b0736; 
+  color: white;
+  font-weight: bold;
+}
+
