@@ -91,7 +91,7 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                       <input type="radio" name="status" value="In Progress" checked={formValue.status === 'In Progress'} onChange={handleInput} />
                       In Progress
                     </label>
-                    <label className={`status-radio ${formValue.status === 'Completed' ? 'active' : ''}`} style={{color: 'white'}}>
+                    <label className={`status-radio ${formValue.status === 'Completed' ? 'active' : ''}`} style={{color: 'white',marginLeft: '10px'}}>
                       <input type="radio" name="status" value="Completed" checked={formValue.status === 'Completed'} onChange={handleInput} />
                       Completed
                     </label>

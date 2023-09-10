@@ -112,7 +112,7 @@ function AddTask() {
                   />
                   In Progress
                 </label>
-                <label style={{color: 'white'}} className={`status-radio ${formValue.status === 'Completed' ? 'active' : ''}`}>
+                <label style={{color: 'white',marginLeft: '10px'}} className={`status-radio ${formValue.status === 'Completed' ? 'active' : ''}`}>
                   <input
                     type="radio"
                     name="status"
