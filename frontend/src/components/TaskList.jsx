@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditTaskModal from "./EditTaskModal";
+import AddTaskModal from "./AddTaskModal"; 
 import "./TaskList.css"; 
-
 
 function TaskList() {
   const [taskData, setTaskData] = useState([]);
   const [message, setMessage] = useState('');
   const [editTaskId, setEditTaskId] = useState(null); 
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false); 
 
   useEffect(() => {
     getTaskData();
@@ -52,8 +53,35 @@ function TaskList() {
     getTaskData();
   };
 
+  const openAddTaskModal = () => {
+    setIsAddModalOpen(true);
+  }
+
+  const closeAddTaskModal = () => {
+    setIsAddModalOpen(false);
+  }
+
+  const handleAddSuccess = () => {
+    getTaskData();
+    closeAddTaskModal(); 
+  }
+
   return (
     <React.Fragment>
+      <h2 className="mt-4 text-center" style={{
+        color: '#007BFF',             
+        fontSize: '36px',             
+        fontWeight: 'bold',            
+        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'
+      }}>
+        Task List
+      </h2>
+      <button className="btn" 
+      style={{color:'white', backgroundColor:'#7a74bf', padding : '5px 12px',borderRadius: '13px', marginTop:'20px', marginLeft:'-16px'}}
+       onClick={openAddTaskModal}>
+        Add Task
+      </button>
+
       <div className="task-list-data-table ">
         <div className="row ">
           <div className="task-list " >
@@ -119,7 +147,11 @@ function TaskList() {
           </div>
         </div>
       </div>
-      
+
+      {isAddModalOpen && (
+        <AddTaskModal onClose={closeAddTaskModal} onAddSuccess={handleAddSuccess} />
+      )}
+
       {editTaskId && (
         <EditTaskModal taskId={editTaskId} onClose={closeEditTaskModal} onEditSuccess={handleEditSuccess} />
       )}
@@ -128,3 +160,4 @@ function TaskList() {
   );
 }
 export default TaskList;
+

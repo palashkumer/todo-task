@@ -32,7 +32,16 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();if (
+      !formValue.taskName ||
+      !formValue.taskDescription ||
+      !formValue.dueDate ||
+      !formValue.status ||
+      !formValue.priority
+    ) {
+      alert('All fields are required'); 
+      return; 
+    }
 
     const res = await axios.put("http://localhost/todo-task/api/index.php", formValue);
 
@@ -50,8 +59,7 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
       <div className="modal-dialog" role="document">
         <div className="modal-content" style={{ backgroundColor: '#0b0736'}}>
           <div className="modal-header">
-            <h5 className="modal-title" style={{color:'white', backgroundColor:'#7a74bf', padding : '2px 12px',borderRadius: '13px'}}>Edit Task</h5>
-            <button type="button" className="close" onClick={onClose} aria-label="Close">
+          <b className="modal-title" style={{color:'white', padding : '2px 12px',fontWeight: 'bold',fontSize: 'x-large'}}>Edit Task</b>            <button type="button" className="close" onClick={onClose} aria-label="Close">
               <span aria-hidden="true" style={{color: 'magenta'}}>&times;</span>
             </button>
           </div>
@@ -62,16 +70,22 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                     Task Name
                     </label>
                   <div className="col-sm-10">
-                    <input type="text" name="taskName" value={formValue.taskName} className="form-control" onChange={handleInput} />
+                    <input style={{width: '370px',
+                    marginLeft: '5px',
+                    borderRadius: '10px'}}
+                     type="text" name="taskName" value={formValue.taskName} className="form-control" onChange={handleInput} />
                   </div>
                 </div>
 
                 <div className="mb-3 row">
-                  <label className="col-sm-2"style={{color: 'white'}}>
-                    Description
+                  <label className="col-sm-2"style={{color: 'white',padding: '5px'}}>
+                    Task Description
                     </label>
                   <div className="col-sm-10">
-                    <input type="text" name="taskDescription" value={formValue.taskDescription} className="form-control" onChange={handleInput} />
+                    <input style={{width: '370px',
+                    marginLeft: '5px',
+                    borderRadius: '10px'}}
+                     type="text" name="taskDescription" value={formValue.taskDescription} className="form-control" onChange={handleInput} />
                   </div>
                 </div>
 
@@ -80,7 +94,10 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                     Due Date
                     </label>
                   <div className="col-sm-10">
-                    <input type="date" name="dueDate" value={formValue.dueDate} className="form-control" onChange={handleInput} />
+                    <input style={{width: '370px',
+                    marginLeft: '5px',
+                    borderRadius: '10px'}}
+                    type="date" name="dueDate" value={formValue.dueDate} className="form-control" onChange={handleInput} />
                   </div>
                 </div>
 
@@ -102,7 +119,11 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                     Priority
                     </label>
                   <div className="col-sm-10">
-                    <select name="priority" className="form-control" value={formValue.priority} onChange={handleInput}>
+                    <select
+                    style={{width: '370px',
+                    marginLeft: '5px',
+                    borderRadius: '10px'}}
+                     name="priority" className="form-control" value={formValue.priority} onChange={handleInput}>
                       <option value="">--Select Priority--</option>
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -114,7 +135,7 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                 <div className="mb-3 row">
                   <label className="col-sm-2" style={{color: 'white'}}></label>
                   <div className="col-sm-10">
-                    <button type="submit" name="update" className="btn" style={{color: 'white',backgroundColor:'#7a74bf', padding : '2px 12px',borderRadius: '13px'}}>Update</button>
+                    <button type="submit" name="update" className="btn" style={{color: 'white',backgroundColor:'#7a74bf', padding : '6px 34px',borderRadius: '15px'}}>Update</button>
                   </div>
                 </div>
               </form>
