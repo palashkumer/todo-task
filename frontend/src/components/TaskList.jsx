@@ -32,6 +32,9 @@ function TaskList() {
       const response = await axios.delete(`http://localhost/todo-task/api/index.php?id=${id}`);
       setMessage(response.data.success);
       getTaskData();
+      setTimeout(() => {
+        setMessage('');
+      }, 2000);
     } catch (error) {
       console.error("Error deleting Task:", error);
     }

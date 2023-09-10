@@ -11,7 +11,7 @@ function App() {
     <div className="task-list-container ">
       <div className="App">
         <h2 className="mt-4 text-center">Task List</h2>
-        <Link to="/addtask" className="btn btn-success mx-3 mt-4">
+        <Link to="/addtask" className="btn addBtn-bg" style={{color:'white', backgroundColor:'#7a74bf', padding : '5px 12px',borderRadius: '13px', marginTop:'20px', marginLeft:'-16px'}}>
           Add Task
         </Link>
         <Routes>
