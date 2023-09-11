@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./AddTaskModal.css";
 
 function AddTaskModal({ onClose, onAddSuccess }) {
   const [formValue, setFormValue] = useState({
@@ -50,18 +51,20 @@ function AddTaskModal({ onClose, onAddSuccess }) {
   };
 
   return (
+    <>
+    <div
+        className="modal-backdrop"
+
+        onClick={onClose} 
+      ></div>
+
     <div className="modal" tabIndex="-1" role="dialog" style={{ display: "block" }}>
       <div className="modal-dialog" role="document">
-        <div className="modal-content" style={{ backgroundColor: "#0b0736" }}>
+        <div className="modal-content" >
           <div className="modal-header">
             <b
               className="modal-title"
-              style={{
-                color: "white",
-                padding: "2px 12px",
-                fontWeight: "bold",
-                fontSize: "x-large",
-              }}
+              
             >
               Add Task
             </b>
@@ -79,18 +82,16 @@ function AddTaskModal({ onClose, onAddSuccess }) {
           <div className="modal-body">
             <form onSubmit={handleSubmit}>
               <div className="mb-3 row">
-                <label className="col-sm-2" style={{ color: "white" }}>
+                <label className="col-sm-2 heading"  >
                   Task Name
                 </label>
                 <div className="col-sm-10">
                   <input
-                  style={{width: '370px',
-                  marginLeft: '5px',
-                  borderRadius: '10px'}}
+                 
                     type="text"
                     name="taskName"
                     value={formValue.taskName}
-                    className="form-control"
+                    className="form-control input-box"
                     onChange={handleInput}
                     placeholder="Enter Task Name"
                   />
@@ -98,20 +99,18 @@ function AddTaskModal({ onClose, onAddSuccess }) {
               </div>
               <div className="mb-3 row">
                 <label
-                  className="col-sm-2"
-                  style={{ color: "white" }}
+                  className="col-sm-2 heading"
+                   
                 >
                  Task Description
                 </label>
                 <div className="col-sm-10">
                   <input
-                  style={{width: '370px',
-                    marginLeft: '5px',
-                    borderRadius: '10px'}}
+                  
                     type="text"
                     name="taskDescription"
                     value={formValue.taskDescription}
-                    className="form-control"
+                    className="form-control input-box"
                     onChange={handleInput}
                     placeholder="Enter Description"
                   />
@@ -119,35 +118,34 @@ function AddTaskModal({ onClose, onAddSuccess }) {
               </div>
 
               <div className="mb-3 row">
-                <label className="col-sm-2" style={{ color: "white" }}>
+                <label className="col-sm-2 heading"  >
                   Due Date
                 </label>
                 <div className="col-sm-10">
                   <input
-                  style={{width: '370px',
-                  marginLeft: '5px',
-                  borderRadius: '10px'}}
+                  
                     type="date"
                     name="dueDate"
                     value={formValue.dueDate}
-                    className="form-control"
+                    className="form-control input-box"
                     onChange={handleInput}
                   />
                 </div>
               </div>
 
               <div className="mb-3 row">
-                <label className="col-sm-2" style={{ color: "white" }}>
+                <label className="col-sm-2 heading"  >
                   Status
                 </label>
                 <div className="col-sm-10">
                   <label
-                    style={{ color: "white" }}
+                     style={{ color: "white" }}
                     className={`status-radio ${
                       formValue.status === "In Progress" ? "active" : ""
                     }`}
                   >
                     <input
+                    
                     
                       type="radio"
                       name="status"
@@ -176,15 +174,13 @@ function AddTaskModal({ onClose, onAddSuccess }) {
                 </div>
               </div>
               <div className="mb-3 row">
-                <label className="col-sm-2" style={{ color: "white" }}>
+                <label className="col-sm-2 heading"  >
                   Priority
                 </label>
                 <div className="col-sm-10">
-                  <select style={{width: '370px',
-                    marginLeft: '5px',
-                    borderRadius: '10px'}}
+                  <select 
                     name="priority"
-                    className="form-control"
+                    className="form-control input-box"
                     value={formValue.priority}
                     onChange={handleInput}
                   >
@@ -197,17 +193,12 @@ function AddTaskModal({ onClose, onAddSuccess }) {
               </div>
 
               <div className="mb-3 row">
-                <label className="col-sm-2" style={{ color: "white" }}></label>
+                <label className="col-sm-2"  ></label>
                 <div className="col-sm-10">
                   <button
                     name="submit"
-                    className="btn"
-                    style={{
-                      color: "white",
-                      backgroundColor: "#7a74bf",
-                      padding: "6px 34px",
-                      borderRadius: "15px",
-                    }}
+                    className="btn add-btn"
+                    
                   >
                     Add
                   </button>
@@ -219,7 +210,12 @@ function AddTaskModal({ onClose, onAddSuccess }) {
         </div>
       </div>
     </div>
+    </>
+
   );
 }
 
 export default AddTaskModal;
+
+
+

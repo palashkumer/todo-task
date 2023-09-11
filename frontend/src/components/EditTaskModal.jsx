@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./EditTaskModal.css";
+
 
 function EditTaskModal({ taskId, onClose, onEditSuccess }) {
   const [formValue, setFormValue] = useState({
@@ -55,25 +57,31 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
   };
 
   return (
+    <>
+
+    <div
+        className="modal-backdrop"
+        
+        onClick={onClose} 
+      ></div>
     <div className="modal" tabIndex="-1" role="dialog" style={{ display: 'block' }}>
       <div className="modal-dialog" role="document">
-        <div className="modal-content" style={{ backgroundColor: '#0b0736'}}>
+        <div className="modal-content" >
           <div className="modal-header">
-          <b className="modal-title" style={{color:'white', padding : '2px 12px',fontWeight: 'bold',fontSize: 'x-large'}}>Edit Task</b>            <button type="button" className="close" onClick={onClose} aria-label="Close">
+          <b className="modal-title" >Edit Task</b>            
+          <button type="button" className="close" onClick={onClose} aria-label="Close">
               <span aria-hidden="true" style={{color: 'magenta'}}>&times;</span>
             </button>
           </div>
           <div className="modal-body">
           <form onSubmit={handleSubmit}>
                 <div className="mb-3 row">
-                  <label className="col-sm-2" style={{color: 'white'}}>
+                  <label className="col-sm-2 heading"  >
                     Task Name
                     </label>
                   <div className="col-sm-10">
-                    <input style={{width: '370px',
-                    marginLeft: '5px',
-                    borderRadius: '10px'}}
-                     type="text" name="taskName" value={formValue.taskName} className="form-control" onChange={handleInput} />
+                    <input 
+                     type="text" name="taskName" value={formValue.taskName} className="form-control input-box" onChange={handleInput} />
                   </div>
                 </div>
 
@@ -82,29 +90,25 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                     Task Description
                     </label>
                   <div className="col-sm-10">
-                    <input style={{width: '370px',
-                    marginLeft: '5px',
-                    borderRadius: '10px'}}
-                     type="text" name="taskDescription" value={formValue.taskDescription} className="form-control" onChange={handleInput} />
+                    <input 
+                     type="text" name="taskDescription" value={formValue.taskDescription} className="form-control input-box" onChange={handleInput} />
                   </div>
                 </div>
 
                 <div className="mb-3 row">
-                  <label className="col-sm-2" style={{color: 'white'}}>
+                  <label className="col-sm-2 l heading"  >
                     Due Date
                     </label>
                   <div className="col-sm-10">
-                    <input style={{width: '370px',
-                    marginLeft: '5px',
-                    borderRadius: '10px'}}
-                    type="date" name="dueDate" value={formValue.dueDate} className="form-control" onChange={handleInput} />
+                    <input
+                    type="date" name="dueDate" value={formValue.dueDate} className="form-control input-box" onChange={handleInput} />
                   </div>
                 </div>
 
                 <div className="mb-3 row">
-                  <label className="col-sm-2" style={{color: 'white'}}>Status</label>
+                  <label className="col-sm-2 heading"  >Status</label>
                   <div className="col-sm-10">
-                    <label className={`status-radio ${formValue.status === 'In Progress' ? 'active' : ''}`} style={{color: 'white'}}>
+                    <label className={`status-radio ${formValue.status === 'In Progress' ? 'active' : ''}`} style={{color: 'white'}}  >
                       <input type="radio" name="status" value="In Progress" checked={formValue.status === 'In Progress'} onChange={handleInput} />
                       In Progress
                     </label>
@@ -115,15 +119,13 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                   </div>
                 </div>
                 <div className="mb-3 row">
-                  <label className="col-sm-2" style={{color: 'white'}}>
+                  <label className="col-sm-2 heading"  >
                     Priority
                     </label>
                   <div className="col-sm-10">
                     <select
-                    style={{width: '370px',
-                    marginLeft: '5px',
-                    borderRadius: '10px'}}
-                     name="priority" className="form-control" value={formValue.priority} onChange={handleInput}>
+                    
+                     name="priority" className="form-control input-box" value={formValue.priority} onChange={handleInput}>
                       <option value="">--Select Priority--</option>
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -133,9 +135,9 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
                 </div>
 
                 <div className="mb-3 row">
-                  <label className="col-sm-2" style={{color: 'white'}}></label>
+                  <label className="col-sm-2 heading"  ></label>
                   <div className="col-sm-10">
-                    <button type="submit" name="update" className="btn" style={{color: 'white',backgroundColor:'#7a74bf', padding : '6px 34px',borderRadius: '15px'}}>Update</button>
+                    <button type="submit" name="update" className="btn submit-btn" >Update</button>
                   </div>
                 </div>
               </form>
@@ -144,6 +146,7 @@ function EditTaskModal({ taskId, onClose, onEditSuccess }) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

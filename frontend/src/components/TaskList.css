@@ -1,3 +1,17 @@
+.task-title{
+  color: #007BFF;             
+  font-size: 36px;            
+  font-weight: bold;           
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.add-task-btn{
+  color:white;
+  background-color:#7a74bf;
+  padding : 5px 12px;
+  border-radius: 13px; 
+  margin-top:20px;
+  margin-left:-16px;
+}
 .priority-column {
   color: white;
   font-weight: bold;

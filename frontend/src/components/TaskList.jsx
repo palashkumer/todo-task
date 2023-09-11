@@ -68,16 +68,10 @@ function TaskList() {
 
   return (
     <React.Fragment>
-      <h2 className="mt-4 text-center" style={{
-        color: '#007BFF',             
-        fontSize: '36px',             
-        fontWeight: 'bold',            
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)'
-      }}>
+      <h2 className="mt-4 text-center task-title" >
         Task List
       </h2>
-      <button className="btn" 
-      style={{color:'white', backgroundColor:'#7a74bf', padding : '5px 12px',borderRadius: '13px', marginTop:'20px', marginLeft:'-16px'}}
+      <button className="btn add-task-btn" 
        onClick={openAddTaskModal}>
         Add Task
       </button>
