@@ -12,17 +12,18 @@ then give project name (front-end)  <br/>
 ```
 C:\todo-task\cd front-end  <br/>
 ```
+```
 C:\todo-task\cd front-end> npm install <br/>
 ```
 ## Run
 ```
 C:\todo-task\front-end> npm run dev  <br>
 ```
-## Install React Router Dom  <br>
+### Install React Router Dom  <br>
 ```
 C:\todo-task\my-app>npm i react-router-dom  <br/>
 ```
-## Install Axios <br>
+### Install Axios <br>
 ```
 C:\todo-task\front-end>npm install axios
 ```
