@@ -1,13 +1,14 @@
 # todo-task
 
- This is a crud operation where I used React js as a front end & Php Api as a backend.
+This is a crud operation where I used ReactJS as the front end and PHP Api as the backend.
 
-#Installation <br/>
-##Create Project <br/>
+#Installation 
+
+##Create Project 
 ```
 C:\todo-task>npm create vite@latest <br/>
 ```
-then give project name(front-end)  <br/>
+then give project name (front-end)  <br/>
 ```
 C:\todo-task\cd front-end  <br/>
 ```
